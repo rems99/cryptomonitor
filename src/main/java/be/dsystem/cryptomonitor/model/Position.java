@@ -1,20 +1,21 @@
 package be.dsystem.cryptomonitor.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
+
 @Entity
 @Data
 public class Position {
     @Id
-    private Long id;
+    @GeneratedValue
+    private UUID id;
     @Column
-    private LocalDate date;
+    private LocalDateTime date;
     @OneToOne
     private CryptoToken token;
     @OneToOne

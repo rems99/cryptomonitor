@@ -1,18 +1,17 @@
 package be.dsystem.cryptomonitor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
 public class Wallet {
     @Id
-    private Long id;
+    @GeneratedValue
+    private UUID id;
     @OneToMany
     List<Position> positions;
 }
